@@ -5,8 +5,16 @@
 
 tMotor *leftMotor;
 tMotor *rightMotor;
+tBoolean initialized = false;
 
 void initMotors(void) {
+    // don't initialize this if we've already done so
+    if (initialized) {
+        return;
+    }
+    
+    initialized = true;
+
     leftMotor = InitializeMotor(PIN_B7, PIN_B6, true, false);
     rightMotor = InitializeMotor(PIN_C5, PIN_C4, true, false);
     //leftMotor = InitializeMotor(PIN_F1, PIN_F0, true, false);
